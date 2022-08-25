@@ -11,17 +11,5 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
-            - echo $SEMAPHORE_CACHE_USERNAME
-            - echo $SEMAPHORE_CACHE_URL
-            - dd if=/dev/zero of=file.txt count=1024 bs=1024
             - cache store test1 file.txt
-  - name: 'Block #2'
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands:
-            - checkout
-            - echo $SEMAPHORE_CACHE_USERNAME
-            - echo $SEMAPHORE_CACHE_URL
-            - cache restore test1
-            - ls -lah
+  
